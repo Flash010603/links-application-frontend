@@ -1,0 +1,31 @@
+.overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.795);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+  .close {
+    color: rgb(230, 45, 45);
+    position: absolute;
+    top: 6%;
+    right: 6%;
+    cursor: pointer;
+    font-size: 3em;
+    transition: transform 0.3s ease-in-out;
+  }
+  .close:hover {
+    color: rgb(238, 22, 22);
+    transform: scale(1.2);
+  }
+  
+  @media screen and (max-width: 425px) {
+    .close {
+      top: 1%;
+      right: 2%;
+      font-size: 3em;
+    }
+  }
