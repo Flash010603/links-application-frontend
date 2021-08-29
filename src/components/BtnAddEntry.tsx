@@ -4,7 +4,7 @@ import { ModalContext } from '../context/ModalContext';
 
 export const BtnAddEntry = () => {
 
-    const { modalState,setToggleModal } = useContext(ModalContext);
+    const { setToggleModal } = useContext(ModalContext);
 
     return (
     <div className="entry">

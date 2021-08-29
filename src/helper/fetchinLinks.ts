@@ -1,10 +1,10 @@
 
-import { ILinkRest, DataSend, ILinkRestObj } from '../interfaces/index';
+import {  DataSend, ILinkRestObj } from '../interfaces/index';
 import { baseUrlApi } from './urlCongif';
 
 
 export const fetchingDataObj = async (path: string, data: DataSend | null, method: "POST" | "PUT" | "DELETE") => {
-
+    console.log('FETCH DE POST/PUT/DELET')
     const url = `${baseUrlApi}/${path}`
 
     const options: RequestInit = {
@@ -19,11 +19,3 @@ export const fetchingDataObj = async (path: string, data: DataSend | null, metho
     const info: ILinkRestObj = await res.json();
     return info;
 };
-
-export const fetchingDataArr = async () => {
-
-    const url = `${baseUrlApi}`
-    const res = await fetch(url);
-    const info: ILinkRest = await res.json();
-    return info;
-}

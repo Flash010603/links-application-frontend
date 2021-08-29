@@ -63,7 +63,7 @@ form {
   margin: 2em auto 0em auto;
 }
 .btn_save:hover {
-  width: 55%;
+  /* width: 55%; */
   background-color: rgb(42, 163, 48);
   border: 1px solid rgba(0, 0, 0, 0.644);
 }
