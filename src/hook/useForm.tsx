@@ -4,6 +4,7 @@ import { fetchingDataObj } from '../helper/fetchinLinks';
 import { DataSend, ILinkRestObj} from '../interfaces/index';
 import { showAlert } from '../helper/alert';
 import { validation } from '../helper/validation';
+import { LinkContext } from '../context/LinkContext';
 
 const initialState = {
     name: '',
@@ -12,8 +13,9 @@ const initialState = {
 
 export const useForm = () => {
 
-    const { setToggleModal, setSendDataAll, modalState, setSendData } = useContext(ModalContext);
-    const { data, isUpdated, dataAll } = modalState;
+    const { setToggleModal } = useContext(ModalContext);
+    const { setSendDataAll, setSendData,linkState } = useContext(LinkContext);
+    const { data, isUpdated, dataAll } = linkState;
 
     const [form, setForm] = useState(initialState);
     const { name, url } = form;

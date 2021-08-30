@@ -8,9 +8,8 @@ interface PropsCard{
 
 export const Card = ({dataLink}: PropsCard) => {
 
-  console.log('card')
   const { handleGoToSite, handleUpdateLink, handleDeleteLink, date } =useOptionsCard(dataLink);
-  const {link,name} = dataLink
+  const {link,name, id} = dataLink
 
   return (
     <div className="card" onClick={handleGoToSite}>
@@ -21,10 +20,10 @@ export const Card = ({dataLink}: PropsCard) => {
       <p className="date_created">Modification date: <br /><b>{ date }</b></p>
 
       <div className="container_btn_card">
-        <button className="edit" onClick={handleUpdateLink}>
+        <button className="edit" id={`${id}_edit`} onClick={handleUpdateLink}>
           <i className="far fa-edit edit_icon"></i>
         </button>
-        <button className="delete" onClick={handleDeleteLink}>
+        <button className="delete" id={`${id}_delete`} onClick={handleDeleteLink}>
           <i className="far fa-trash-alt delete_icon"></i>
         </button>
       </div>

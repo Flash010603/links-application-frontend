@@ -1,11 +1,14 @@
 import React, { useContext } from 'react'
 import { ModalContext } from '../context/ModalContext';
 import { useForm } from '../hook/useForm';
+import { LinkContext } from '../context/LinkContext';
 
 export const Form: React.FC = () => {
 
   const { handleSubmit, onChange, form } = useForm();
-  const { setToggleModal, setSendData, modalState } = useContext(ModalContext);
+  const { setToggleModal } = useContext(ModalContext);
+  const { setSendData, linkState }=useContext(LinkContext);
+  const { isUpdated }=linkState
   const { name, url } = form;
 
 
@@ -17,7 +20,7 @@ export const Form: React.FC = () => {
 
       <h2 className="title_form">
         {
-          (!modalState.isUpdated)
+          (!isUpdated)
             ? 'Agrega otro link!'
             : 'Edita los datos de tu link!'
         }

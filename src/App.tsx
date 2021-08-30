@@ -1,34 +1,37 @@
 import React from 'react'
-import { toast } from 'react-toastify';
 
 import { Footer } from './components/Footer';
 import { LayoutHome } from './components/Layout/LayoutHome';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 import { ModalProvider } from './context/ModalContext';
-import { Background } from './components/Background';
+import { Background } from './components/ui/Background';
+import { LinkProvider } from './context/LinkContext';
 
-toast.configure();
+
 
 export const App: React.FC = () => {
 
   return (
     <ContextProvider>
       <LayoutHome>
-          <Header />
-          <Main />
+        <Header />
+        <Main />
         <Footer />
-      <Background/>
+        <Background />
       </LayoutHome>
-    </ContextProvider>
+      </ContextProvider>
+    
   )
 }
 
 
-const ContextProvider: React.FC = ({ children }) => {
+const ContextProvider: React.FC = (({ children }) => {
   return (
-    <ModalProvider>
-      {children}
-    </ModalProvider>
+    <LinkProvider>
+      <ModalProvider >
+        {children}
+      </ModalProvider>
+    </LinkProvider>
   )
-};
+})

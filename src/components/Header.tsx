@@ -1,5 +1,5 @@
-import React from 'react'
-import { BtnAddEntry } from './BtnAddEntry';
+import React from 'react';
+import { BtnAddEntry } from './ui/BtnAddEntry'
 
 export const Header = () => {
     return (

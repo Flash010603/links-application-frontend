@@ -1,10 +1,7 @@
 import { ModalState } from './ModalContext';
-import { Data } from '../interfaces/index';
 
 type ModalActions = 
-{ type: 'setmodal', payload:boolean} |
-{ type: 'setdata', payload:Data|null} |
-{ type: 'setdataAll', payload:Data[]} 
+{ type: 'setmodal', payload:boolean}
 
 
 export const modalReducer = (state: ModalState, action: ModalActions): ModalState => {
@@ -13,19 +10,7 @@ export const modalReducer = (state: ModalState, action: ModalActions): ModalStat
         case "setmodal":
             return {
                 ...state,
-                isOpen: !state.isOpen,
-                isUpdated: action.payload
-            }
-        case "setdata":
-            return {
-                ...state,
-                data: action.payload
-            }
-
-        case "setdataAll":
-            return {
-                ...state,
-                dataAll: action.payload
+                isOpen: !state.isOpen
             }
         default: return state
     }

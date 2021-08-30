@@ -9,7 +9,6 @@
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-toastify": "^7.0.4",
     "sweetalert2": "^11.1.4"
   },
   "devDependencies": {

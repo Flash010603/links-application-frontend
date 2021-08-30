@@ -4,6 +4,7 @@ import { showAlert } from "../helper/alert";
 import { fetchingDataObj } from '../helper/fetchinLinks';
 import { ModalContext } from '../context/ModalContext';
 import { Data } from '../interfaces/index';
+import { LinkContext } from '../context/LinkContext';
 
 const config: SweetAlertOptions<any, any> = {
     title: 'Estas seguro',
@@ -20,21 +21,21 @@ const config: SweetAlertOptions<any, any> = {
 export const useOptionsCard = ((dataLink: Data) => {
     const [date, setDate] = useState("");
     const { link, start, id } = dataLink;
-    const { setToggleModal, setSendData,setSendDataAll, modalState } = useContext(ModalContext);
-    const {dataAll}=modalState;
+    const { setToggleModal } = useContext(ModalContext);
+    const { setSendData, setSendDataAll, linkState } = useContext(LinkContext);
+    const { dataAll } = linkState;
 
     useEffect(() => {
-        console.log('fecha')
         let fecha = new Date(start)
         const fechaFull = `${fecha.getDate()} / ${fecha.getMonth() + 1} / ${fecha.getFullYear()} - ( ${fecha.getHours()}: ${fecha.getMinutes()} )`;
         setDate(fechaFull)
-        return ()=>{
+        return () => {
             setDate("")
         }
     }, [start]);
 
     const handleUpdateLink = () => {
-        
+
         setSendData(dataLink);
         setToggleModal(true);
     };
@@ -44,7 +45,7 @@ export const useOptionsCard = ((dataLink: Data) => {
         const res = await Swal.fire(config);
 
         if (!res.isConfirmed) return;
-        
+
         const result = await fetchingDataObj(id, null, "DELETE");
         if (result) {
 

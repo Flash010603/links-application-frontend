@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import plus from '../assets/plus.png';
-import { ModalContext } from '../context/ModalContext';
+import { ModalContext } from '../../context/ModalContext';
+
+import plus from '../../assets/plus.png';
 
 export const BtnAddEntry = () => {
 

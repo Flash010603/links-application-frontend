@@ -4,7 +4,7 @@ import { baseUrlApi } from './urlCongif';
 
 
 export const fetchingDataObj = async (path: string, data: DataSend | null, method: "POST" | "PUT" | "DELETE") => {
-    console.log('FETCH DE POST/PUT/DELET')
+
     const url = `${baseUrlApi}/${path}`
 
     const options: RequestInit = {
