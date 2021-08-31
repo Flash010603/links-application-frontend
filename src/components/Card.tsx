@@ -7,9 +7,10 @@ interface PropsCard{
 }
 
 export const Card = ({dataLink}: PropsCard) => {
-  console.log('card');
+ 
   const { handleGoToSite, handleUpdateLink, handleDeleteLink, date } =useOptionsCard(dataLink);
   const {link,name, id} = dataLink
+  console.log('card');
 
   return (
     <div className="card" onClick={handleGoToSite}>

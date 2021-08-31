@@ -4,22 +4,12 @@ import { Form } from './Form';
 import { Loading } from './ui/Loading';
 import { NoData } from './NoData';
 import { useInitFetching } from '../hook/useInitFetching';
+import { ListCards } from './ListCards';
 
 export const Main = () => {
 
     const { isOpen, dataAll, loading } = useInitFetching();
 
-    const renderData = () => {
-        if (loading) return <Loading />;
-
-        if (dataAll.length === 0) return <NoData />;
-
-        return (
-            dataAll.map(link => (
-                <Card key={link.id} dataLink={link} />
-            ))
-        )
-    }
 
     return (
         <>
@@ -30,7 +20,9 @@ export const Main = () => {
                         : 'container_cards_whitoutLoading'}`}
             >
                 {
-                    renderData()
+                    (loading) 
+                        ? <Loading />
+                        : <ListCards cards={dataAll} />
                 }
             </section>
 
