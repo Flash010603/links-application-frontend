@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Card } from './Card'
 import { Form } from './Form';
 import { Loading } from './ui/Loading';
@@ -8,13 +8,14 @@ import { ListCards } from './ListCards';
 
 export const Main = () => {
 
-    const { isOpen, dataAll, loading } = useInitFetching();
-
-
+    const {  dataAll, loading } = useInitFetching();
+    
     return (
         <>
+                
+
             <section
-                className={`${(!isOpen) ? 'container_cards' : 'modal_open'} 
+                className={`'container_cards'} 
                     ${(loading || dataAll.length === 0)
                         ? 'container_cards_whitLoading'
                         : 'container_cards_whitoutLoading'}`}
@@ -26,7 +27,7 @@ export const Main = () => {
                 }
             </section>
 
-            {(isOpen) && <Form />}
+           
 
         </>
     )

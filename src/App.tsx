@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Footer } from './components/Footer';
-import { LayoutHome } from './components/Layout/LayoutHome';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
-import { ModalProvider } from './context/ModalContext';
 import { Background } from './components/ui/Background';
 import { LinkProvider } from './context/LinkContext';
+import { Form } from './components/Form';
 
 
 
 export const App: React.FC = () => {
 
+  const [state, setState] = useState(false);
+
+    const handleChange = () => {
+        setState(!state)
+    };
+
+
   return (
     <ContextProvider>
-      <LayoutHome>
+      <input type="checkbox" name="" id="modal" onChange={handleChange}/>
+      <div className={`${ (state) ? 'container_OpenModal': 'container' }`}>
         <Header />
         <Main />
-        <Footer />
         <Background />
-      </LayoutHome>
+      </div>
+      {(state) && <Form />}
       </ContextProvider>
     
   )
@@ -29,9 +35,7 @@ export const App: React.FC = () => {
 const ContextProvider: React.FC = (({ children }) => {
   return (
     <LinkProvider>
-      <ModalProvider >
         {children}
-      </ModalProvider>
     </LinkProvider>
   )
 })

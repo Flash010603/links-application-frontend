@@ -1,26 +1,31 @@
 import React, { useContext } from 'react'
-import { ModalContext } from '../context/ModalContext';
+
 import { useForm } from '../hook/useForm';
 import { LinkContext } from '../context/LinkContext';
 
 export const Form: React.FC = () => {
 
   const { handleSubmit, onChange, form } = useForm();
-  const { setToggleModal } = useContext(ModalContext);
+
   const { setSendData, linkState }=useContext(LinkContext);
-  const { isUpdated }=linkState
+  const { data }=linkState
   const { name, url } = form;
 
+  const handleCloseModal = () => {
+
+     if(data) setSendData(null);
+  };
 
   return (
     <>
       <div className="overlay">
-        <i className="fas fa-times close" onClick={() => { setToggleModal(false); setSendData(null) }}></i>
+        <label htmlFor="modal">
+          <i className="fas fa-times close" onClick={handleCloseModal}></i></label>
       </div>
 
       <h2 className="title_form">
         {
-          (!isUpdated)
+          (!data)
             ? 'Agrega otro link!'
             : 'Edita los datos de tu link!'
         }

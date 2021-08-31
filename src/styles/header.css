@@ -43,7 +43,7 @@ header {
   left: -5%;
   clip-path: polygon(100% 1%, 0 52%, 100% 100%);
 }
-.entry > img {
+.entry label > img {
   width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease;

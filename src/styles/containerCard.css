@@ -1,9 +1,8 @@
 .container_cards {
   padding: 0.5em 1.5em 0em 1.5em;
-  height: 70vh;
-  overflow-y: scroll;
 }
 .modal_open{
+  height:10vh;
   padding: 0.5em 1.5em 0em 1.5em;
   overflow-y: scroll;
 }
@@ -14,9 +13,11 @@
   align-items: center;
 }
 .container_cards_whitoutLoading {
+  margin: 2em 0 ;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5em;
+  padding-bottom: 4em;
 }
 
 .container_cards::-webkit-scrollbar {

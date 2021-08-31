@@ -22,7 +22,9 @@ export const Card = ({dataLink}: PropsCard) => {
 
       <div className="container_btn_card">
         <button className="edit" id={`${id}_edit`} onClick={handleUpdateLink}>
+          <label htmlFor="modal">
           <i className="far fa-edit edit_icon"></i>
+          </label>
         </button>
         <button className="delete" id={`${id}_delete`} onClick={handleDeleteLink}>
           <i className="far fa-trash-alt delete_icon"></i>

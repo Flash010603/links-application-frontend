@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ModalContext } from '../context/ModalContext';
 import { fetchingDataObj } from '../helper/fetchinLinks';
 import { DataSend, ILinkRestObj} from '../interfaces/index';
 import { showAlert } from '../helper/alert';
@@ -13,7 +12,6 @@ const initialState = {
 
 export const useForm = () => {
 
-    const { setToggleModal } = useContext(ModalContext);
     const { setSendDataAll, setSendData,linkState } = useContext(LinkContext);
     const { data, isUpdated, dataAll } = linkState;
 
@@ -80,7 +78,6 @@ export const useForm = () => {
 
     const reset = () => {
         setTimeout(() => {
-            setToggleModal(false);
             setForm(initialState)
         }, 1500);
     };

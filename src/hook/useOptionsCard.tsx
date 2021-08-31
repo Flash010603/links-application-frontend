@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import Swal, { SweetAlertOptions } from "sweetalert2";
 import { showAlert } from "../helper/alert";
 import { fetchingDataObj } from '../helper/fetchinLinks';
-import { ModalContext } from '../context/ModalContext';
 import { Data } from '../interfaces/index';
 import { LinkContext } from '../context/LinkContext';
 
@@ -21,7 +20,6 @@ const config: SweetAlertOptions<any, any> = {
 export const useOptionsCard = ((dataLink: Data) => {
     const [date, setDate] = useState("");
     const { link, start, id } = dataLink;
-    const { setToggleModal } = useContext(ModalContext);
     const { setSendData, setSendDataAll, linkState } = useContext(LinkContext);
     const { dataAll } = linkState;
 
@@ -37,7 +35,6 @@ export const useOptionsCard = ((dataLink: Data) => {
     const handleUpdateLink = () => {
 
         setSendData(dataLink);
-        setToggleModal(true);
     };
 
     const handleDeleteLink = async () => {
